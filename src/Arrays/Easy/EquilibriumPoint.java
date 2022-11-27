@@ -43,7 +43,7 @@ public class EquilibriumPoint {
         return -1;
     }
 
-    // Method2
+    // Method 2
     public static int equilibriumPoint2(long arr[], int n) {
 
         if(n==1)
@@ -63,4 +63,85 @@ public class EquilibriumPoint {
         return -1;
     }
 
+    //Method 3, mine done using pointer approach
+    public static int equilibriumPoint3(long arr[], int n) {
+
+        int front = 0,fsum=(int)arr[front];
+        int back = n-1,bsum=(int)arr[back];
+
+        if(n==1){
+            return 1;
+        }
+        while(back!=front+1){
+            if(fsum==bsum){
+                if(front+1==back-1)
+                    return front+2;
+
+                if(arr[front+1]<arr[back-1])
+                {
+                    front++;
+                    fsum +=(int)arr[front];
+                }
+                else{
+                    back--;
+                    bsum +=(int)arr[back];
+                }
+
+            }
+            else if(bsum>fsum){
+                front++;
+                fsum +=(int)arr[front];
+            }
+            else
+            {
+                back--;
+                bsum +=(int)arr[back];
+            }
+        }
+        return -1;
+
+    }
+
+    //Method 4, not mine but very new and good thinking
+    public static int equilibriumPoint4(long arr[], int n) {
+
+        if(n == 1)
+
+        {
+
+            return 1;
+
+        }
+
+        long a[] = new long[n];
+
+        int sum = 0;
+
+        for(int i=0;i<n;i++)
+
+        {
+
+            sum += arr[i];
+
+            a[i] = sum;
+
+        }
+
+        for(int i=1;i<n-1;i++)
+
+        {
+
+            if(a[i-1] == (a[n-1]-a[i]))
+
+            {
+
+                return i+1;
+
+            }
+
+        }
+
+        return -1;
+
+    }
 }

@@ -31,9 +31,7 @@ public class MoveAllNegativeToEnd {
         }
     }
 
-    /*
-    * https://practice.geeksforgeeks.org/problems/move-all-negative-elements-to-end1813/1?page=1&difficulty[]
-    * =0&status[]=unsolved&category[]=Arrays&sortBy=submissions
-    * */
+    // https://practice.geeksforgeeks.org/problems/move-all-negative-elements-to-end1813/1?page=1&difficulty[]=0&status[]=unsolved&category[]=Arrays&sortBy=submissions
+
 
 }
