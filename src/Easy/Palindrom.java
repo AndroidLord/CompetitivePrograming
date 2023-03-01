@@ -33,6 +33,24 @@ public class Palindrom {
         return true;
     }
 
+    public static String is_palindrome(int n)
+    {
+        int size = String.valueOf(n).length();
+        if(size==1)
+            return "Yes";
+
+        int i = 0 ;
+        int j = size - 1 ;
+
+        while(i<j){
+            if(String.valueOf(n).charAt(i)!=String.valueOf(n).charAt(j))
+                return "No";
+            i++;j--;
+        }
+        return "Yes";
+
+    }
+
 
 
 }

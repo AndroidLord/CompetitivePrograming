@@ -14,7 +14,7 @@ public class ReverseALinkedList {
 
 
 
-        Node newHead = reverseList2(head);
+        Node newHead = reverseList(head);
 
         // print the reversed linked list
         while(newHead != null) {
@@ -23,41 +23,70 @@ public class ReverseALinkedList {
         }
     }
 
-    // working, mine
     static Node reverseList(Node head)
     {
-        ArrayList<Node> list = new ArrayList<>();
         Node temp = head;
-        while(temp!=null){
-            list.add(temp);
-            temp = temp.next;
-        }
+        Node nhead = head;
 
-        if(list.size()==1)
-        return head;
+        if(temp!=null)
+            reverse(temp);
 
-        Collections.reverse(list);
-        for(int i=0;i<list.size()-1;i++){
-            list.get(i).next = list.get(i+1);
-        }
-        list.get(list.size()-1).next = null;
-        head = list.get(0);
-        return head;
+         head.next = null;
+//        head = nhead;
+
+        return nhead;
     }
+    static void reverse(Node temp){
 
-    static Node newn = null;
-    static Node reverseList2(Node head)
-    {
-        Node temp = head;
         if(temp.next.next!=null){
-            reverseList2(temp.next);
+            reverse(temp.next);
         }
-        else
-            newn = temp.next;
+        else if(temp.next.next==null){
+            //nhead = temp.next;
+            temp.next.next = temp;
+            return;
+        }
+        temp.next.next = temp;
 
-            temp.next = temp;
-
-
-        return newn;
     }
+
+
+
+//    // working, mine
+//    static Node reverseList(Node head)
+//    {
+//        ArrayList<Node> list = new ArrayList<>();
+//        Node temp = head;
+//        while(temp!=null){
+//            list.add(temp);
+//            temp = temp.next;
+//        }
+//
+//        if(list.size()==1)
+//        return head;
+//
+//        Collections.reverse(list);
+//        for(int i=0;i<list.size()-1;i++){
+//            list.get(i).next = list.get(i+1);
+//        }
+//        list.get(list.size()-1).next = null;
+//        head = list.get(0);
+//        return head;
+//    }
+//
+//    static Node newn = null;
+//    static Node reverseList2(Node head)
+//    {
+//        Node temp = head;
+//        if(temp.next.next!=null){
+//            reverseList2(temp.next);
+//        }
+//        else
+//            newn = temp.next;
+//
+//            temp.next = temp;
+//
+//
+//        return newn;
+//    }
 }
