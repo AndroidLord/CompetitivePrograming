@@ -8,6 +8,8 @@ public class PrintArray {
         }
     }
 
+
+
     public static void printMatrix(int[][] matrix){
         System.out.print("[");
         for (int[] arr: matrix){

@@ -5,8 +5,10 @@ public class ExtractTheNumberFromString {
     public static void main(String[] args) {
 
         String sentence="This is alpha 9057";
-        long result = ExtractNumber2(sentence);
-        System.out.println(result);
+
+        long result = ExtractNumber(sentence);
+        
+        System.out.println("Extracted No. "+result);
 
     }
 
