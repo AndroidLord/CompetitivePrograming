@@ -22,7 +22,39 @@ public class PreOrderTraversal {
          return list;
     }
 
+    // Working
+    //Function to return a list containing the preorder traversal of the tree.
+    static ArrayList<Integer> preorder(Node root)
+    {
+        ArrayList<Integer> list = new ArrayList<>();
+        pre(root,list);
 
+        return list;
+    }
+
+    static void pre(Node root, ArrayList<Integer> list){
+
+        if(root==null)
+        {
+
+            return;
+        }
+        else
+        list.add(root.data);
+
+
+        if(root.left!=null){
+
+            pre(root.left,list);
+        }
+        if(root.right!=null){
+
+            pre(root.right,list);
+        }
+
+
+
+    }
 
  }
 
