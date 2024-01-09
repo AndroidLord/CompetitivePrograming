@@ -13,14 +13,14 @@ public class MaximumOccuringCharacter {
         String s2 = "abacdef";
 
 
-        char result = getMaxOccuringChar2(s);
+        char result = getMaxOccuringChar(s);
 
         System.out.println(result);
 
     }
 
     // mine, working
-    public static char getMaxOccuringChar(String line)
+    public static char getMaxOccuringChar1(String line)
     {
 
         ArrayList<Character> list = new ArrayList<>();
@@ -98,6 +98,41 @@ public class MaximumOccuringCharacter {
         int res = (int)'a' + ans;
         return (char)res;
 
+    }
+
+    public static char getMaxOccuringChar(String line)
+    {
+        HashMap<Character,Integer> map = new HashMap<>();
+
+        int n=line.length();
+        int max=1;
+        for(int i=0;i<n;i++){
+
+            char ch = line.charAt(i);
+
+            map.put(ch,map.getOrDefault(ch,0)+1);
+
+            if(map.get(ch)>max) max = map.get(ch);
+
+        }
+
+        char cmax = 'z';
+        for(char ch:map.keySet()){
+
+            int no = map.get(ch);
+
+            if(no==max){
+
+                if(cmax>ch){
+
+                    cmax = ch;
+
+                }
+
+            }
+
+        }
+        return cmax;
     }
 
 }

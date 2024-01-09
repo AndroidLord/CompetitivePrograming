@@ -9,7 +9,7 @@ public class CountAlphabetInNumber {
 
     public static void main(String[] args) {
 
-        String s = "hnwnkuewhsqmgbbuqcljjivswmdkqtbxixmvtrrbljptnsnfwzqfjmafadrrwsofsbcnuvqhffbsaqxwpqcac";
+        String s = "lptpgwgjrwlgtdhdui";
 
 
         countAlphabetInNumber(s);

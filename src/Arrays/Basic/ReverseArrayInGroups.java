@@ -35,18 +35,67 @@ public class ReverseArrayInGroups {
 
     public static void main(String[] args) {
         ArrayList<Integer> list1 = new ArrayList<>();
-        int arr[] = {1,2,3,4,5,6,7};
+        int arr[] = {1,2,3,4,5,6};
         for(int e: arr){
             list1.add(e);
         }
 
 
-        reverseInGroups(list1, list1.size(), 3);
+        reverseInGroups(list1, list1.size(), 2);
         System.out.println(list1);
     }
 
 
+    // Working, mine
     static void reverseInGroups(ArrayList<Integer> arr, int n, int k) {
+
+
+
+
+
+            if(k>n){
+
+                Collections.reverse(arr);
+                return;
+
+            }
+
+            int low = 0,high=k-1,count=high;
+
+
+
+
+            while(high>low){
+
+                int first = arr.get(low);
+                arr.set(low,arr.get(high));
+                arr.set(high,first);
+
+                high--;low++;
+
+                if(low>=high){
+                    if(count+k<n){
+                        low = count+1;
+                        high = count + k;
+                        count = high;
+                    }
+                    else{
+                        low = count+1;
+                        high = n-1;
+                        count = n;
+                    }
+                }
+
+            }
+
+
+
+
+
+
+    }
+
+    static void reverseInGroups3(ArrayList<Integer> arr, int n, int k) {
 
         if(k==1)
             return;

@@ -25,7 +25,7 @@ public class ImplementStrStr {
         return -1;
     }
 
-    static int strstr(String s, String x)
+    static int strstr2(String s, String x)
     {
         int len = x.length();
         int strlen = s.length();
@@ -45,4 +45,24 @@ public class ImplementStrStr {
         return -1;
     }
 
+
+    static int strstr(String s, String x)
+    {
+        int n = s.length()
+                , m = x.length();
+
+        for(int i=0;i<n-m+1;i++){
+
+            String ts = s.substring(i,i+m);
+
+            if(ts.equals(x)){
+
+                return i;
+
+            }
+
+        }
+        return -1;
+
+    }
 }

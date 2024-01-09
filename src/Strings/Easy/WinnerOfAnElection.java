@@ -7,8 +7,12 @@ public class WinnerOfAnElection {
 
     public static void main(String[] args) {
 
-        int n = 3;
-        String Votes[] = {"andy", "blake", "clark"};
+
+       // String Votes[] = {"andy", "blake", "clark"};
+        String Votes[] = {"andy", "andy", "andy"};
+        //String Votes[] = {"john","johnny","jackie","johnny","john","jackie","jamie","jamie","john","johnny","jamie","johnny","john"};
+
+        int n = Votes.length;
 
         String[] result = winner(Votes, n);
         for (String res : result)
@@ -19,7 +23,7 @@ public class WinnerOfAnElection {
 
     }
 
-    public static String[] winner(String arr[], int n)
+    public static String[] winner2(String arr[], int n)
     {
         HashMap<String,Integer> map = new HashMap<>();
 
@@ -48,4 +52,36 @@ public class WinnerOfAnElection {
         return res;
     }
 
+
+    // Working, mine
+    public static String[] winner(String arr[], int n)
+    {
+
+        HashMap<String,Integer> map = new HashMap<>();
+
+        for(int i=0;i<arr.length;i++){
+
+            map.put(arr[i],map.getOrDefault(arr[i],0)+1);
+
+        }
+
+        String max = arr[0];
+        int mp = map.get(arr[0]);
+
+        for(int i=1;i<arr.length;i++){
+
+            int point = map.get(arr[i]);
+
+            if(!max.equals(arr[i]) && point>=mp)
+            {
+                if(max.compareTo(arr[i])>=0 || point>mp){
+                    max = arr[i];
+                    mp = point;
+                }
+
+
+            }
+        }
+        return new String[]{max,String.valueOf(mp)};
+    }
 }
